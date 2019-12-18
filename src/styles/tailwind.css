@@ -1,0 +1,10 @@
+@tailwind base;
+
+@font-face {
+    font-family: 'coconnextarabicLight';
+    src: local('coconnextarabicLight'), url(./fonts/coconnextarabic-light.ttf) format('truetype');
+  }
+
+@tailwind components;
+
+@tailwind utilities;
