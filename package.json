@@ -15,12 +15,17 @@
     "react-scripts": "3.3.0",
     "tailwindcss": "^1.1.4"
   },
+  
   "scripts": {
     "build:styles": "postcss src/styles/tailwind.css -o src/styles/processed-tailwind.css",
     "start": "npm run build:styles && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+  },
+  "engines": {
+    "npm": "6.4.1",
+    "node": "10.15.0"
   },
   "eslintConfig": {
     "extends": "react-app"
