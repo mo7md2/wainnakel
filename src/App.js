@@ -41,12 +41,14 @@ class App extends Component {
         `https://cors-anywhere.herokuapp.com/https://www.wainnakel.com/api/v1/GenerateFS.php?uid=${this.state.location.lat},${this.state.location.lon}`
       )
       .then(res => {
-        if (res.data && res.error !== "no") {
+        if (res.data && res.data.error === "no") {
           this.setState({
             infoIsLoaded: true,
             isLoading: false,
             restaurant: res.data
           });
+        } else {
+          this.setState({ infoIsLoaded: false, isLoading: false });
         }
       })
       .catch(() => {
@@ -57,7 +59,7 @@ class App extends Component {
     // simple routing based on infoIsLoaded from state ; false > Home ; true > MapPage
     // we have only tow views so no need for react router
     const Page =
-      !this.state.infoIsLoaded && true ? (
+      !this.state.infoIsLoaded ? (
         <Home isLoading={this.state.isLoading} onClick={this.getApiInfo} />
       ) : (
         <MapPage
